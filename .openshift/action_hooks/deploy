@@ -63,10 +63,10 @@ then
     --skip_url_validation \
     --url "http://$OPENSHIFT_APP_DNS" \
     --use_rewrites "yes" \
-    --use_secure "yes" \
+    --use_secure "no" \
     --enable_charts \
-    --secure_base_url "https://$OPENSHIFT_APP_DNS" \
-    --use_secure_admin "yes" \
+    --secure_base_url "http://$OPENSHIFT_APP_DNS" \
+    --use_secure_admin "no" \
     --admin_firstname "Test" \
     --admin_lastname "Magento" \
     --admin_email "foo@bar.com" \
