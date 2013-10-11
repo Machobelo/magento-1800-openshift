@@ -9,8 +9,8 @@
 set -e
 
 export SAMPLE_NAME=magento-sample-data-1.6.1.0
-MAGENTO_ADMIN_USERNAME="Carlos"
-MAGENTO_ADMIN_PASSWORD="machobelo"
+MAGENTO_ADMIN_USERNAME="admin"
+MAGENTO_ADMIN_PASSWORD="OpenShiftAdmin123"
 
 if [ ! -f ${OPENSHIFT_DATA_DIR}.magento-sample-installed ];
 then
@@ -53,9 +53,9 @@ then
   echo "Configuring Magento for first use"
   php -f ${OPENSHIFT_REPO_DIR}php/install.php -- \
     --license_agreement_accepted "yes" \
-    --locale "pt_BR" \
-    --timezone "America/Sao_Paulo" \
-    --default_currency "BRL" \
+    --locale "en_GB" \
+    --timezone "Europe/London" \
+    --default_currency "GBP" \
     --db_host "$OPENSHIFT_MYSQL_DB_HOST" \
     --db_name "$OPENSHIFT_APP_NAME" \
     --db_user "$OPENSHIFT_MYSQL_DB_USERNAME" \
@@ -65,9 +65,9 @@ then
     --use_rewrites "yes" \
     --use_secure "yes" \
     --enable_charts \
-    --secure_base_url "http://$OPENSHIFT_APP_DNS" \
-    --use_secure_admin "no" \
-    --admin_firstname "Carlos" \
+    --secure_base_url "https://$OPENSHIFT_APP_DNS" \
+    --use_secure_admin "yes" \
+    --admin_firstname "Test" \
     --admin_lastname "Magento" \
     --admin_email "foo@bar.com" \
     --admin_username "$MAGENTO_ADMIN_USERNAME" \
